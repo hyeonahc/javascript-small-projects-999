@@ -1,0 +1,85 @@
+Mouse Wheel Event - Vertical | JQuery
+
+CSS
+main
+position: fixed를 주는 순간 main은 공중에 띄워진다
+즉 main의 부모 태그인 body는 안에 컨텐츠가 공중에 띄워져있으므로
+body의 height는 0이다
+
+JQuery 기본문법
+$('선택자').메소드();
+
+변수 선언
+num, oneWheel, delta, count를전역변수(global variable)로 만들어 블럭안에서 접근이 가능하도록 하였다
+1. num이라는 변수에 숫자형 데이터 0이 할당
+2. oneWheel, delta라는 변수가 선언
+-- 선언 후 데이터를 안에 넣지 않았기 때문에 변수 inter, delta를 호출시 undefined 값이 나온다
+3. count라는 변수에 section의 총길이를 count 변수에 할당
+
+nav 생성
+1. count 변수는 section의 총 개수인 5를 의미한다
+2. 반복문 for문은 총 5번이 실행된다
+3. a태그를 생성을 5번 반복해 aside 태그 안에 넣어준다
+-- aside 태그 안에는 5개의 a태그가 들어있다
+4. eq(0)은 nth-child(0)과 같은 말이다
+5. aside안에 있는 0번째 a태그에 active라는 클래스를 붙여준다
+
+클릭 이벤트
+1. aside 안에 있는 a태그를 클릭하면 click event가 발생되며 아래와 같은 함수가 실행된다
+2. 변수 num에 $(this).index() 값을 할당한다
+-- 여기서 this는 해당 이벤트가 발생한 태그 aside a를 가리킨다
+-- 즉 num 값은 클릭된 인디케이터의 인덱스번호를 담는다
+-- 첫번째 인디케이터를 클릭했을때는 num = 0
+-- num = 0, 1, 2, 3, 4
+3. scrollSection() 함수를 실행한다
+
+마우스휠 이벤트
+1. 브라우저에 mousewheel 이벤트가 발생한 경우, 파이폭스에서 DOMMouseScroll이벤트가 발생한 경우 아래와 같은 함수가 실행된다
+2. delta = e.originalEvent.wheelDelta || -e.originalEvent.detail;
+-- Logical Operator ||: 하나라도 true면 true를 리턴한다
+-- 일반웹브라우저에 마우스휠 이벤트가 발생하면 e.originalEvent.wheelDelta 값을 delta에
+   파이어폭스에 마우스휠 이벤트가 발생하면 -e.originalEvent.detail 값을 delta에 넣어준다
+-- wheelDelta, detail 값은 마우스 휠을 내렸을때 발생되는 값으로
+   일반 웹브라우저에서는 마우스 휠을 내렸을때 마이너스 값이 파이어폭스에서는 플러스 값이 리턴된다
+-- 아래의 코드와 같다
+    if(e.type == 'mousewheel') {
+      console.log('크롬');
+      delta = e.originalEvent.wheelDelta;
+    } else {
+      console.log('파이어폭스');
+      delta = -e.originalEvent.detail;
+    }
+-- 즉 delta 값이 마이너스이면 마우스 휠이 아래로 내려가고 delta 값이 플러스면 마우스 휠이 위로 올라간다
+3. clearTimeout(oneWheel);
+-- clearTimeout이란 setTimeout을 취소(초기화)시키는 메소드이다
+-- oneWheel은 변수만 선언되고 값이 없는 undefined상태이므로 setTimeout이 취소 되지 않는다
+4. 변수 oneWheel에 setTimeout을 넣어 안에 있는 함수가 80밀리세컨즈(0.08초) 후에 실행된다
+5. setTimeout 안에 있는 함수는
+  1) delta가 -값일때 (마우스휠이 내려갔을때)
+  - if (num != count - 1) num++;
+    1.1) 섹션 1 | num = 0, count - 1 = 4 | 0 != 4 => num++
+    1.2) 섹션 2 | num = 1, count - 1 = 4 | 1 != 4 => num++
+    1.3) 섹션 3 | num = 2, count - 1 = 4 | 2 != 4 => num++
+    1.4) 섹션 4 | num = 3, count - 1 = 4 | 3 != 4 => num++
+    1.5) 섹션 5 | num = 4, count - 1 = 4 | 4 != 4 => X
+  2) delta가 +값일때 (마우스휠이 올라갔을때)
+  - if (num != 0) num--;
+    1.1) 섹션 5 | num = 4 | 4 != 0 => num--
+    1.2) 섹션 4 | num = 3 | 3 != 0 => num--
+    1.3) 섹션 3 | num = 2 | 2 != 0 => num--
+    1.4) 섹션 2 | num = 1 | 1 != 0 => num--
+    1.5) 섹션 1 | num = 0 | 0 != 0 => X
+6. scrollSection 함수를 실행
+
+클릭 이벤트, 마우스휠 이벤트 발생시 실행디는 scrollSection()함수
+1. main이라는 태그에 transform: `translateY(-${100 * num}vh)라는 css 추가
+  1) 인디케이터 클릭시 num -> num 값은 클릭된 인디케이터의 인덱스번호를 담는다
+  - 첫번째 인디케이터 클릭시 num은 0이므로 translateY(0vh)
+  - 두번째 인디케이터 클릭시 num은 1이므로 translateY(-100vh)
+  - 세번째 인디케이터 클릭시 num은 2이므로 translateY(-200vh)
+  - 네번째 인디케이터 클릭시 num은 3이므로 translateY(-300vh)
+  - 다번째 인디케이터 클릭시 num은 4이므로 translateY(-400vh)
+  2) 마우스휠 동작시 num -> ... 위에 참조
+2. 기존에 있던 aside a에 있는 active라는 클래스를 제거한다
+3. num번째 a태그에 active 클래스를 붙여준다
+-- css 코드 안에 있는 background: #000;이 활성화된다
