@@ -12,10 +12,8 @@ for (let i = 0; i < count; i++) {
   aside.append(a);
 }
 
-// create NodeList
-let navs = document.querySelectorAll('aside a');
-
 // add active class to first a tag
+let navs = document.querySelectorAll('aside a');
 navs[0].classList.add('active');
 
 // click event
@@ -42,7 +40,7 @@ window.addEventListener('mousewheel', function (e) {
   }, 80);
 });
 
-// function is executed after mousewheel and click event occured
+// function is executed after click and mousewheel event occured
 function scrollSection() {
   main.style.transform = `translateY(-${100 * num}vh)`;
   navs.forEach(nav => {
