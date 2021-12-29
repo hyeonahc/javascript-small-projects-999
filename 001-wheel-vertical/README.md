@@ -1,0 +1,5 @@
+# Mouse Wheel: Vertical Scroll
+
+[✨ Demo Link](https://codepen.io/hyeonahc/full/abLERYZ)
+
+![Mouse Wheel: Vertical Scroll](../images/001-wheel-vertical.png)
