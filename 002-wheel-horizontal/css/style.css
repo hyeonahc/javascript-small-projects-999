@@ -30,7 +30,7 @@ section div {
 }
 aside {
   position: absolute;
-  top: 0;
+  bottom: 5%;
   left: 50%;
   transform: translate(-50%, 0);
   margin-top: 30px;
