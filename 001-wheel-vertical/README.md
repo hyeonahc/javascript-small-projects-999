@@ -1,5 +1,5 @@
 # Mouse Wheel Event: Vertical Scroll
 
-<a href="https://codepen.io/hyeonahc/full/abLERYZ" target="_blank">✨ Demo Link</a>
+[✨ Demo Link](https://codepen.io/hyeonahc/full/abLERYZ)
 
-![Mouse Wheel: Vertical Scroll](../images/001-wheel-vertical.png)
+![Mouse Wheel: Vertical Scroll](../images/001-wheel-vertical.png){:target="\_blank"}
