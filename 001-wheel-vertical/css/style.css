@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+main {
+  transform: translateY(0);
+  transition: 0.5s;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+section {
+  height: 100vh;
+  font-size: 5em;
+  position: relative;
+}
+section:nth-of-type(odd) {
+  background-color: #eee;
+}
+section div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+aside {
+  position: absolute;
+  top: 50%;
+  right: 50px;
+  transform: translate(0, -50%);
+}
+aside a {
+  display: block;
+  border: 3px solid black;
+  height: 20px;
+  width: 20px;
+  margin-bottom: 10px;
+}
+aside a.active {
+  background-color: black;
+}
+aside a:last-child {
+  margin-bottom: 0;
+}
