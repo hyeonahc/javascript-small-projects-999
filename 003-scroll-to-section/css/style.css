@@ -6,7 +6,7 @@ body {
   margin: 0;
 }
 p {
-  border: 3px solid white;
+  border: 3px solid #071b6a;
   border-radius: 100%;
   position: absolute;
   left: 0;
@@ -19,7 +19,7 @@ header {
   left: 0;
   top: 0;
   width: 100%;
-  background-color: darkcyan;
+  background-color: #fb9f9f;
   text-align: center;
   padding: 10px 0;
 }
@@ -27,15 +27,15 @@ header {
   position: absolute;
   top: 0;
   left: 0;
-  height: 4px;
+  height: 2px;
   width: 0;
   border-radius: 3px;
   transition: 0.5s;
-  background-color: white;
+  background-color: #071b6a;
 }
 header a {
-  color: #fff;
-  font-size: 1.75em;
+  color: #071b6a;
+  font-size: 1.55em;
   text-decoration: none;
   margin-right: 10px;
   cursor: pointer;
@@ -49,7 +49,8 @@ section {
   justify-content: center;
   align-items: center;
   font-size: 2em;
+  color: #071b6a;
 }
 section:nth-of-type(odd) {
-  background-color: #eee;
+  background-color: #fbfaf5;
 }
