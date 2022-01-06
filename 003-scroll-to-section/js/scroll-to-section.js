@@ -3,6 +3,7 @@ const menus = document.querySelectorAll('header a');
 const underline = document.getElementById('underline');
 const sections = document.querySelectorAll('section');
 let secOffsetTop;
+let oneWheel;
 
 // window starts from position(0, 0) wherever it's loaded
 window.onbeforeunload = function () {
@@ -35,3 +36,21 @@ function displayUnderline(index) {
   underline.style.top =
     menus[index].offsetTop + menus[index].offsetHeight + 'px';
 }
+
+// When user scrolls to the section, underline displays on the menu
+window.addEventListener('scroll', function () {
+  clearTimeout(oneWheel);
+  oneWheel = setTimeout(function () {
+    const scrolled = window.scrollY;
+    const innerHeight = window.innerHeight;
+    if (scrolled === 0) {
+      displayUnderline(0);
+    }
+    if (scrolled > innerHeight / 2) {
+      displayUnderline(1);
+    }
+    if (scrolled > innerHeight + innerHeight / 2) {
+      displayUnderline(2);
+    }
+  }, 80);
+});
