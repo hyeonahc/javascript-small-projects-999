@@ -1,0 +1,154 @@
+:root {
+  --lightpink: #f5e9e7;
+  --grey: #f7f6f4;
+  --darkpink: #e5ccc3;
+  --green: #dee1dc;
+}
+
+body {
+  margin: 0;
+}
+h1,
+h2 {
+  margin: 0;
+}
+h1 {
+  font-size: 40px;
+}
+h2 {
+  font-size: 30px;
+}
+p {
+  font-size: 20px;
+  line-height: 1.5;
+}
+.container {
+  /* border: 1px solid darkblue; */
+  max-width: 1024px;
+  margin: 0 auto;
+}
+.flex-box {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-item {
+  /* border: 1px solid salmon; */
+  width: 45%;
+}
+.flex-item:nth-child(2) {
+  text-align: right;
+}
+img {
+  width: 400px;
+}
+
+/* section 1 */
+section:first-child .bg-box {
+  background: var(--lightpink);
+  height: 400px;
+}
+section:first-child .position {
+  /* border: 1px solid darkorange; */
+  position: relative;
+  bottom: 200px;
+}
+section:first-child .flex-box .content {
+  margin-top: 90px;
+  width: 55%;
+}
+
+/* section 2 */
+section:nth-child(2) {
+  background: var(--grey);
+  padding-bottom: 100px;
+}
+section:nth-child(2) .flex-box:nth-child(1) {
+  position: relative;
+  bottom: 80px;
+  align-items: flex-end;
+}
+section:nth-child(2) .flex-box:nth-child(2) {
+  align-items: flex-start;
+}
+section:nth-child(2) .flex-box:nth-child(1) .flex-item:nth-child(2) img {
+  width: 250px;
+}
+
+/* section 3 */
+section:nth-child(3) {
+  height: 120vh;
+}
+section:nth-child(3) .bg-box {
+  background: var(--darkpink);
+  height: 300px;
+}
+section:nth-child(3) .position {
+  position: relative;
+  bottom: 80px;
+}
+.card {
+  width: 25%;
+  text-align: center;
+}
+
+/* section 3 */
+section:nth-child(4) {
+  background: var(--green);
+  padding-bottom: 100px;
+}
+section:nth-child(4) .flex-box:nth-child(1) .flex-item:nth-child(2) img {
+  position: relative;
+  bottom: 200px;
+}
+section:nth-child(4) .flex-box:nth-child(2) {
+  align-items: flex-end;
+}
+section:nth-child(4) .flex-box:nth-child(2) .flex-item:nth-child(2) {
+  text-align: left;
+}
+
+@media only screen and (max-width: 1024px) {
+  .container {
+    max-width: 767px;
+  }
+  img {
+    width: 350px;
+  }
+}
+@media only screen and (max-width: 992px) {
+  .container {
+    max-width: 576px;
+  }
+  img {
+    width: 300px;
+  }
+  h1 {
+    font-size: 35px;
+  }
+  h2 {
+    font-size: 25px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.5;
+  }
+}
+
+/* figure {
+  margin: 0;
+  padding-bottom: 50px;
+  transition: 1s;
+  transform: translateY(25%);
+  opacity: 0;
+  text-align: center;
+}
+figure:first-child {
+  padding-top: 50px;
+}
+figure.active {
+  opacity: 1;
+  transform: translateY(0%);
+}
+figure img {
+  width: 350px;
+} */
