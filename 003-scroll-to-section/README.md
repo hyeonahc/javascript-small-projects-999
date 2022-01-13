@@ -1,5 +1,5 @@
 # Scroll to Section
 
-[✨ Demo Link](https://codepen.io/hyeonahc/full/jOGZYym)
+[✨ Demo Link](https://javascript-exercise.netlify.app/003-scroll-to-section/)
 
-![Mouse Wheel: Horizontal Scroll](../images/003-scroll-to-section.png)
+![003-scroll-to-section](https://user-images.githubusercontent.com/83247825/149331060-5270006a-12de-4282-b485-83b235c4fbc0.png)
