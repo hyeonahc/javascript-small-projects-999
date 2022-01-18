@@ -40,8 +40,8 @@ img {
   width: 400px;
 }
 .move {
-  transition: 1s;
-  transform: translateY(25%);
+  transition: 1.5s;
+  transform: translateY(50%);
   opacity: 0;
 }
 .move.active {
