@@ -11,6 +11,10 @@ const sec4_imgs = document.querySelectorAll('#section4 img');
 
 let onewheel;
 
+function removeActiveClass(el) {
+  el.classList.remove('active');
+}
+
 function addActiveClass(el) {
   el.classList.add('active');
 }
@@ -27,7 +31,7 @@ window.addEventListener('scroll', function () {
       addActiveClass(sec2_img);
     });
 
-    if (scrollY > sec2_height + sec3_height / 3) {
+    if (scrollY > sec2_height + sec3_height / 2) {
       sec3_cards.forEach(sec3_card => {
         addActiveClass(sec3_card);
       });
