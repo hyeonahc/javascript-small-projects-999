@@ -1,4 +1,4 @@
-# JavaScript Exercise
+# JavaScript Small Projects 999
 
 Mini web projects using HTML, CSS and JavaScript.
 
