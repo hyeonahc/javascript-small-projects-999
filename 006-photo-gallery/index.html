@@ -6,16 +6,15 @@
     <title>Photo Gallery</title>
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <script defer src="js/data.js"></script>
-    <!-- <script defer src="js/main.js"></script> -->
-    <script defer src="js/example.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
   </head>
   <body>
     <header>
       <a class="logo" href="#">Photo Gallery</a>
       <nav class="nav">
         <ul>
-          <li class="gallery on">Gallery</li>
+          <li class="gallery on">Photos</li>
           <li class="upload">Upload Photo</li>
           <li class="myinfo">My Info</li>
         </ul>
@@ -23,7 +22,6 @@
       <a class="account" href="#">Logout</a>
     </header>
     <main class="gallery">
-      <!-- class: gallery, upload, myinfo -->
       <aside>
         <div class="dep _gallery option-title">Options</div>
         <div class="dep _upload option-title">Upload Photo</div>
@@ -53,7 +51,7 @@
             class="description"
             type="text"
             maxlength="20"
-            placeholder="Describe your photo in 20 letters"
+            placeholder="사진 설명을 20자 이내로 적어주세요."
           />
           <span class="descLength">0/20</span>
           <br />
