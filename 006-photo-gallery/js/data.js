@@ -1,7 +1,7 @@
 let my_info = {
-  id: 'fastcampus',
-  user_name: '패캠',
-  introduction: '사진 찍는 걸 좋아하는 프로그래머 지망생입니다.',
+  id: 'donaldglover',
+  user_name: 'Childish Gambino',
+  introduction: 'I love taking pictures!',
   as: 'hobby',
   interest: ['nature', 'thing'],
   like: [2, 5, 9],

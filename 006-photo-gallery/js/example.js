@@ -13,9 +13,70 @@ function setMenu(_menu) {
   document.querySelector('main').className = _menu;
 }
 
-setMenu('upload');
-
 description.addEventListener('keyup', () => {
   document.querySelector('.descLength').innerHTML =
     description.value.length + '/20';
 });
+
+function showMyInfo() {
+  document.querySelector('#myInfoId').innerHTML = my_info.id;
+  document.querySelector('#myInfoUserName').innerHTML = my_info.user_name;
+  document.querySelector('#ip-intro').value = my_info.introduction;
+  document.querySelector('#sp-intro').innerHTML = my_info.introduction;
+  document.querySelector(
+    `#myinfo input[type=radio][value=${my_info.as}]`
+  ).checked = true;
+
+  document
+    .querySelectorAll('#myinfo input[type=checkbox]')
+    .forEach(checkbox => {
+      checkbox.checked = false;
+    });
+
+  my_info.interest.forEach(interest => {
+    document.querySelector(
+      `#myinfo input[type=checkbox][value=${interest}]`
+    ).checked = true;
+  });
+}
+showMyInfo();
+
+document.querySelector('div.button.editBtn').addEventListener('click', () => {
+  console.log('수정');
+  setEditMyInfo(true);
+});
+
+document.querySelector('div.button.cancel').addEventListener('click', () => {
+  console.log('취소');
+  setEditMyInfo(false);
+});
+
+document.querySelector('div.button.confirm').addEventListener('click', () => {
+  console.log('확인');
+  updateMyInfo();
+});
+
+function setEditMyInfo(on) {
+  document.querySelector('#myinfo > div').className = on ? 'edit' : 'non-edit';
+  document.querySelectorAll('#myinfo input').forEach(input => {
+    input.disabled = !on;
+  });
+  showMyInfo();
+}
+
+function updateMyInfo() {
+  my_info.introduction = document.querySelector('#ip-intro').value;
+  my_info.as = document.querySelector(
+    '#myinfo input[type=radio]:checked'
+  ).value;
+  let interests = [];
+  document
+    .querySelectorAll('#myinfo input[type=checkbox]:checked')
+    .forEach(checkbox => {
+      interests.push(checkbox.value);
+      my_info.interest = interests;
+    });
+  console.log(my_info);
+  setEditMyInfo(false);
+  showMyInfo();
+}
