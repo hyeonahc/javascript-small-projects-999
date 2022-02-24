@@ -1,5 +1,6 @@
 const menus = document.querySelectorAll('.nav > ul > li');
 const description = document.querySelector('.description');
+const gallery = document.querySelector('#gallery');
 
 menus.forEach(menu => {
   menu.addEventListener('click', () => setMenu(menu.className.split(' ')[0]));
@@ -80,3 +81,25 @@ function updateMyInfo() {
   setEditMyInfo(false);
   showMyInfo();
 }
+
+function showPhotos() {
+  photos.forEach(photo => {
+    // console.log(photo);
+    let photoNode = document.querySelector('article.hidden').cloneNode(true);
+    photoNode.classList.remove('hidden');
+    photoNode.querySelector('.author').innerHTML = photo.user_name;
+    photoNode.querySelector('.desc').innerHTML = photo.description;
+    photoNode.querySelector('.like').innerHTML = photo.likes;
+
+    if (my_info.like.indexOf(photo.idx) > -1) {
+      photoNode.querySelector('.like').classList.add('on');
+    }
+
+    photoNode.querySelector(
+      '.photo'
+    ).style.backgroundImage = `url(./img/photo/${photo.file_name})`;
+
+    gallery.append(photoNode);
+  });
+}
+showPhotos();
