@@ -10,6 +10,7 @@ const cancelBtn = document.querySelector('.cancel');
 const myInfo = document.querySelector('#myinfo > .non-edit');
 const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
 const radioButtons = document.querySelectorAll('input[type="radio"]');
+const gallery = document.querySelector('#gallery');
 let mainClassName;
 let letterNum;
 
@@ -110,3 +111,37 @@ function updateMyInfo() {
       my_info.interest = newInterest;
     });
 }
+
+function showPhotos() {
+  photos.forEach(photo => {
+    const photoNode = document.querySelector('article.hidden').cloneNode(true);
+    photoNode.classList.remove('hidden');
+
+    // console.log(photoNode, photo);
+
+    photoNode.querySelector(
+      '.photo'
+    ).style.backgroundImage = `url('./img/photo/${photo.file_name}')`;
+    photoNode.querySelector('.like').innerHTML = photo.likes;
+    photoNode.querySelector('.author').innerHTML = photo.user_name;
+    photoNode.querySelector('.desc').innerHTML = photo.description;
+
+    gallery.append(photoNode);
+  });
+}
+showPhotos();
+
+const likes = document.querySelectorAll('#gallery .like');
+
+likes.forEach(like => {
+  like.addEventListener('click', () => {
+    like.classList.toggle('on');
+    if (like.className === 'on') {
+      console.log("like.className === 'on'");
+      photo.likes -= 1;
+    } else {
+      console.log("like.className !== 'on'");
+      photo.likes += 1;
+    }
+  });
+});

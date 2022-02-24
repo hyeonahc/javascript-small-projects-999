@@ -7,22 +7,22 @@
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <script defer src="js/data.js"></script>
-    <script defer src="js/main.js"></script>
-    <!-- <script defer src="js/example.js"></script> -->
+    <!-- <script defer src="js/main.js"></script> -->
+    <script defer src="js/example.js"></script>
   </head>
   <body>
     <header>
       <a class="logo" href="#">Photo Gallery</a>
       <nav class="nav">
         <ul>
-          <li class="gallery">Gallery</li>
+          <li class="gallery on">Gallery</li>
           <li class="upload">Upload Photo</li>
-          <li class="myinfo on">My Info</li>
+          <li class="myinfo">My Info</li>
         </ul>
       </nav>
       <a class="account" href="#">Logout</a>
     </header>
-    <main class="myinfo">
+    <main class="gallery">
       <!-- class: gallery, upload, myinfo -->
       <aside>
         <div class="dep _gallery option-title">Options</div>
@@ -45,7 +45,16 @@
           <p>Lorem ipsum dolor sit amet consectetur</p>
         </section>
 
-        <section id="gallery" class="dep _gallery"></section>
+        <section id="gallery" class="dep _gallery">
+          <article class="hidden">
+            <div class="photo"></div>
+            <div class="info">
+              <div class="like"></div>
+              <div class="author"></div>
+              <div class="desc"></div>
+            </div>
+          </article>
+        </section>
 
         <section id="upload" class="dep _upload">
           <div class="instruction">Uploading</div>
