@@ -10,7 +10,7 @@ const cancelBtn = document.querySelector('.cancel');
 const myInfo = document.querySelector('#myinfo > .non-edit');
 const checkBoxes = document.querySelectorAll('input[type="checkbox"]');
 const radioButtons = document.querySelectorAll('input[type="radio"]');
-const gallery = document.querySelector('#gallery');
+
 let mainClassName;
 let letterNum;
 
@@ -113,11 +113,14 @@ function updateMyInfo() {
 }
 
 function showPhotos() {
+  let existingNodes = document.querySelectorAll('article:not(.hidden)');
+  existingNodes.forEach(function (existingNode) {
+    existingNode.remove();
+  });
+
   photos.forEach(photo => {
     const photoNode = document.querySelector('article.hidden').cloneNode(true);
     photoNode.classList.remove('hidden');
-
-    // console.log(photoNode, photo);
 
     photoNode.querySelector(
       '.photo'
@@ -127,21 +130,40 @@ function showPhotos() {
     photoNode.querySelector('.desc').innerHTML = photo.description;
 
     gallery.append(photoNode);
+
+    if (my_info.like.indexOf(photo.idx) !== -1) {
+      photoNode.querySelector('.like').classList.add('on');
+    }
+
+    photoNode.querySelector('.like').addEventListener('click', function () {
+      toggleLike(photo.idx);
+    });
   });
 }
 showPhotos();
 
-const likes = document.querySelectorAll('#gallery .like');
-
-likes.forEach(like => {
-  like.addEventListener('click', () => {
-    like.classList.toggle('on');
-    if (like.className === 'on') {
-      console.log("like.className === 'on'");
-      photo.likes -= 1;
-    } else {
-      console.log("like.className !== 'on'");
-      photo.likes += 1;
+function toggleLike(idx) {
+  console.log(idx);
+  if (my_info.like.indexOf(idx) === -1) {
+    my_info.like.push(idx);
+    console.log(my_info.like);
+    for (let i = 0; i < photos.length; i++) {
+      if (photos[i].idx === idx) {
+        photos[i].likes++;
+        break;
+      }
     }
-  });
-});
+  } else {
+    my_info.like = my_info.like.filter(num => {
+      return num !== idx;
+    });
+    console.log(my_info.like);
+    for (let i = 0; i < photos.length; i++) {
+      if (photos[i].idx === idx) {
+        photos[i].likes--;
+        break;
+      }
+    }
+  }
+  showPhotos();
+}

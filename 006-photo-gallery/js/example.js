@@ -83,6 +83,11 @@ function updateMyInfo() {
 }
 
 function showPhotos() {
+  let existingNodes = document.querySelectorAll('article:not(.hidden)');
+  existingNodes.forEach(function (existingNode) {
+    existingNode.remove();
+  });
+
   photos.forEach(photo => {
     // console.log(photo);
     let photoNode = document.querySelector('article.hidden').cloneNode(true);
@@ -99,7 +104,34 @@ function showPhotos() {
       '.photo'
     ).style.backgroundImage = `url(./img/photo/${photo.file_name})`;
 
+    photoNode.querySelector('.like').addEventListener('click', () => {
+      toggleLike(photo.idx);
+    });
+
     gallery.append(photoNode);
   });
 }
 showPhotos();
+
+function toggleLike(idx) {
+  if (my_info.like.indexOf(idx) === -1) {
+    my_info.like.push(idx);
+    for (let i = 0; i < photos.length; i++) {
+      if (photos[i].idx === idx) {
+        photos[i].likes++;
+        break;
+      }
+    }
+  } else {
+    my_info.like = my_info.like.filter(int => {
+      return int !== idx;
+    });
+    for (let i = 0; i < photos.length; i++) {
+      if (photos[i].idx === idx) {
+        photos[i].likes--;
+        break;
+      }
+    }
+  }
+  showPhotos();
+}
