@@ -29,14 +29,14 @@
         <div class="dep _upload option-title">Upload Photo</div>
         <div class="dep _myinfo option-title">My Info</div>
         <ul id="sorts" class="dep _gallery">
-          <li class="recent on">By Newest</li>
-          <li class="like">By Most Liked</li>
+          <li class="recent on" onclick="setSort('recent')">By Newest</li>
+          <li class="like" onclick="setSort('like')">By Most Liked</li>
         </ul>
         <ul id="filters" class="dep _gallery">
-          <li class="all on">All</li>
-          <li class="mine">My Gallery</li>
-          <li class="like">Like</li>
-          <li class="follow">Followed</li>
+          <li class="all on" onclick="setFilter('all')">All</li>
+          <li class="mine" onclick="setFilter('mine')">My Gallery</li>
+          <li class="like" onclick="setFilter('like')">Like</li>
+          <li class="follow" onclick="setFilter('follow')">Followed</li>
         </ul>
       </aside>
       <div class="content">

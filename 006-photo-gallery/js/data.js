@@ -67,7 +67,7 @@ let photos = [
   },
   {
     idx: 8,
-    user_id: 'fastcampus',
+    user_id: 'donaldglover',
     user_name: '패캠',
     file_name: 'photo_8.jpg',
     description: '누랑이랑 뒷산에 오르다',

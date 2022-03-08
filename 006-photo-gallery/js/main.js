@@ -112,13 +112,68 @@ function updateMyInfo() {
     });
 }
 
+let sorts = {
+  recent: (a, b) => {
+    return a.idx > b.idx ? -1 : 1;
+  },
+  like: (a, b) => {
+    return a.likes > b.likes ? -1 : 1;
+  },
+};
+
+let sort = sorts.recent;
+
+function setSort(_sort) {
+  sortOptions = document.querySelectorAll('#sorts > li');
+  sortOptions.forEach(sortOption => {
+    sortOption.classList.remove('on');
+  });
+  document.querySelector('#sorts .' + _sort).classList.add('on');
+  sort = sorts[_sort];
+  showPhotos();
+}
+
+let filters = {
+  all: () => {
+    return true;
+  },
+  mine: photo => {
+    return photo.user_id === my_info.id;
+  },
+  like: photo => {
+    return my_info.like.indexOf(photo.idx) > -1;
+  },
+  follow: photo => {
+    return my_info.follow.indexOf(photo.user_id) > -1;
+  },
+};
+
+let filter = filters.all;
+
+function setFilter(_filter) {
+  filterOptions = document.querySelectorAll('#filters > li');
+  filterOptions.forEach(filterOption => {
+    filterOption.classList.remove('on');
+  });
+  document.querySelector('#filters .' + _filter).classList.add('on');
+  filter = filters[_filter];
+  showPhotos();
+}
+
+let filtered;
+
 function showPhotos() {
   let existingNodes = document.querySelectorAll('article:not(.hidden)');
   existingNodes.forEach(function (existingNode) {
     existingNode.remove();
   });
 
-  photos.forEach(photo => {
+  const gallery = document.querySelector('#gallery');
+
+  filtered = photos.filter(filter);
+  filtered.sort(sort);
+
+  filtered.forEach(photo => {
     const photoNode = document.querySelector('article.hidden').cloneNode(true);
     photoNode.classList.remove('hidden');
 
@@ -129,8 +184,6 @@ function showPhotos() {
     photoNode.querySelector('.author').innerHTML = photo.user_name;
     photoNode.querySelector('.desc').innerHTML = photo.description;
 
-    gallery.append(photoNode);
-
     if (my_info.like.indexOf(photo.idx) !== -1) {
       photoNode.querySelector('.like').classList.add('on');
     }
@@ -138,6 +191,8 @@ function showPhotos() {
     photoNode.querySelector('.like').addEventListener('click', function () {
       toggleLike(photo.idx);
     });
+
+    gallery.append(photoNode);
   });
 }
 showPhotos();
