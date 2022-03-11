@@ -1,4 +1,5 @@
 // Variable declaration
+const logo = document.querySelector('#logo');
 const menus = document.querySelectorAll('.nav > ul > li');
 const main = document.querySelector('main');
 const description = document.querySelector('.description');
@@ -181,7 +182,7 @@ function showPhotos() {
       '.photo'
     ).style.backgroundImage = `url('./img/photo/${photo.file_name}')`;
     photoNode.querySelector('.like').innerHTML = photo.likes;
-    photoNode.querySelector('.author').innerHTML = photo.user_name;
+    photoNode.querySelector('.author').innerHTML = photo.user_id;
     photoNode.querySelector('.desc').innerHTML = photo.description;
 
     if (my_info.like.indexOf(photo.idx) !== -1) {

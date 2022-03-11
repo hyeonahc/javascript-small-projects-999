@@ -11,7 +11,14 @@ header {
   width: 100vw;
   height: 64px;
   line-height: 64px;
-  background-color: #ff4500;
+  background: linear-gradient(
+    to right,
+    #fccc63,
+    #e08241,
+    #e06658,
+    #a74d67,
+    #313367
+  );
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
 header .logo {
@@ -105,15 +112,23 @@ main .content {
 }
 
 #gallery {
-  padding: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 50px 0;
+}
+main.upload #gallery,
+main.myinfo #gallery {
+  display: none;
 }
 article {
   display: inline-block;
-  margin: 8px;
+  margin: 15px;
   padding: 24px;
   background-color: #fff;
   box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
   border-radius: 12px;
+  width: 450px;
 }
 article.hidden {
   display: none;
@@ -126,6 +141,7 @@ article .photo {
   height: 320px;
   border-radius: 4px;
   background-size: cover;
+  background-position: center center;
 }
 article .info {
   display: grid;
@@ -165,6 +181,9 @@ article .info .desc {
   grid-area: desc;
   padding: 4px 0;
   color: gray;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #upload {
@@ -198,7 +217,7 @@ article .info .desc {
   display: inline-block;
   padding: 14px 24px;
   color: white;
-  background-color: #ff4500;
+  background-color: #e06658;
   font-size: 1.1rem;
   cursor: pointer;
 }
@@ -249,6 +268,13 @@ main.myinfo .dep._myinfo {
   display: block;
 }
 
+/* main.gallery .dep._gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 50px 0;
+} */
+
 main .write {
   position: fixed;
   z-index: 2;
@@ -259,7 +285,7 @@ main .write div {
   width: 88px;
   height: 88px;
   border-radius: 50%;
-  background-color: #ff4500;
+  background-color: #e06658;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   background-image: url('../img/interface//camera.png');
