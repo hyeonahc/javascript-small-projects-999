@@ -9,3 +9,4 @@ Mini web projects using HTML, CSS and JavaScript.
 | 003 | Scroll to Section                    |        [Demo](https://javascript-small-projects-999.netlify.app/003-scroll-to-section/)         |
 | 004 | Images Move Up as Scrolling Down     | [Demo](https://javascript-small-projects-999.netlify.app/004-images-move-up-as-scrolling-down/) |
 | 005 | Calculator                           |            [Demo](https://javascript-small-projects-999.netlify.app/005-calculator/)            |
+| 006 | Photo Gallery                        |          [Demo](https://javascript-small-projects-999.netlify.app/006-photo-gallery/)           |
