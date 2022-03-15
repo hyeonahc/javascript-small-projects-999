@@ -78,6 +78,9 @@ nav {
   .nav__menu li {
     margin-right: 0;
   }
+  .nav__social a i {
+    margin-right: 0;
+  }
   .nav__social {
     display: none;
     margin: 1rem;

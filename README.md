@@ -11,3 +11,4 @@ Mini web projects using HTML, CSS and JavaScript.
 | 005 | Calculator                           |            [Demo](https://javascript-small-projects-999.netlify.app/005-calculator/)            |
 | 006 | Photo Gallery                        |          [Demo](https://javascript-small-projects-999.netlify.app/006-photo-gallery/)           |
 | 007 | Typing Animation                     |         [Demo](https://javascript-small-projects-999.netlify.app/007-typing-animation/)         |
+| 008 | Hamburger Menu                       |          [Demo](https://javascript-small-projects-999.netlify.app/008-hamburger-menu/)          |
