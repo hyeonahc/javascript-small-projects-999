@@ -27,9 +27,9 @@
 // 기존에 있는 요소를 observe하기
 const cards = document.querySelectorAll('.card');
 
-const observer = new IntersectionObserver(entires => {
+const observer = new IntersectionObserver(entries => {
   // 관찰할 대상(Element)당 하나의 IntersectionObserverEntry 배열을 가지게 된다
-  entires.forEach(
+  entries.forEach(
     entry => {
       console.log(entry);
       entry.target.classList.toggle('show', entry.isIntersecting);
